@@ -25,9 +25,41 @@
     </nav>
   </header>
   <main>
+    <ul class="options-list body__options-list">
+      <li class="list-input">
+        <div class="input-icn">
+          <img src="assets/icons/load.svg" alt="load">
+        </div>
+        <input type="file" id="file" class="hidden">
+        <label for="file" class="text">Load</label>
+      </li>
+      <li class="list-input">
+        <div class="input-icn">
+          <img src="assets/icons/reset.svg" alt="reset">
+        </div>
+        <p class="text">Reset</p>
+      </li>
+      <li class="list-input">
+        <div class="input-icn">
+          <img src="assets/icons/save.svg" alt="save">
+        </div>
+        <p class="text">Save</p>
+      </li>
+      <li class="list-input">
+        <div class="input-icn">
+          <img src="assets/icons/right-arrow.svg" alt="save">
+        </div>
+        <p class="text btn_next">Next</p>
+      </li>
+    </ul>
     <div class="workspace body__workspace">
       <div class="photo-container">
-        <img src="assets/images/img.png" alt="main-photo">
+        <div class="slider-line">
+          <img class="image" src="assets/images/evening.png" alt="main-photo">
+          <img class="image" src="assets/images/night.jpg" alt="main-photo">
+          <img class="image" src="assets/images/morning.jpg" alt="main-photo">
+          <img class="image" src="assets/images/day.jpg" alt="main-photo">
+        </div>
       </div>
       <div class="photo-redactor">
         <div class="filters photo-redactor__filters">
@@ -57,27 +89,6 @@
         </div>
       </div>
     </div>
-    <ul class="options-list body__options-list">
-      <li class="list-input">
-        <div class="input-icn">
-          <img src="assets/icons/load.svg" alt="load">
-        </div>
-        <input type="file" id="file" class="hidden">
-        <label for="file" class="text">Load</label>
-      </li>
-      <li class="list-input">
-        <div class="input-icn">
-          <img src="assets/icons/reset.svg" alt="reset">
-        </div>
-        <p class="text">Reset</p>
-      </li>
-      <li class="list-input">
-        <div class="input-icn">
-          <img src="assets/icons/save.svg" alt="save">
-        </div>
-        <p class="text">Save</p>
-      </li>
-    </ul>
   </main>
   <script src="script.js"></script>
 </body>

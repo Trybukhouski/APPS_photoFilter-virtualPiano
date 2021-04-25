@@ -1,6 +1,11 @@
-const fullscreenBtn = document.querySelector(".fullscreen");
+const photoContainer = document.querySelector('.photo-container');
+const nextBtn = document.querySelector('.btn_next');
+const sliderLine = document.querySelector('.slider-line');
+const images = document.querySelectorAll('.image');
 
 // Fullscreen option
+
+const fullscreenBtn = document.querySelector(".fullscreen");
 
 fullscreenBtn.addEventListener("click", () => toggleFullScreen() && toggleFullScreenIcn());
 
@@ -13,10 +18,9 @@ const toggleFullScreenIcn = () =>
     ? fullscreenBtn.childNodes[1].outerHTML = '<img src="assets/icons/close-fullscreen.svg">'
     : fullscreenBtn.childNodes[1].outerHTML = '<img src="assets/icons/open-fullscreen.svg">';
 
-// // Loader
+// Loader
 
 // const fileInput = document.querySelector('input[type="file"]');
-// const photoContainer = document.querySelector('.photo-container');
 
 // fileInput.addEventListener('change', function (e) {
 //   const actualFile = fileInput.files[0];
@@ -24,8 +28,8 @@ const toggleFullScreenIcn = () =>
 //   reader.onload = () => {
 //     const img = new Image();
 //     img.src = reader.result;
-//     photoContainer.innerHTML = "";
-//     photoContainer.append(img);
+//     sliderLine.innerHTML = "";
+//     sliderLine.append(img);
 //   }
 //   reader.readAsDataURL(actualFile);
 // });
@@ -42,3 +46,17 @@ function handleUpdate() {
 
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+// Slider
+
+let offset = 0;
+
+nextBtn.addEventListener('click', nextPhoto);
+
+function nextPhoto() {
+  offset += 50;
+  if (offset > (images.length - 1) * 50) {
+    offset = 0;
+  }
+  sliderLine.style.left = -offset + 'vw';
+}

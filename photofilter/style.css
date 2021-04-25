@@ -38,12 +38,12 @@
   border-radius: 10px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 50vw 30vw;
   background-color: #000;
   box-shadow: 0 0 30px rgb(0, 0, 0, 0.2);
 }
 .body__workspace {
-  margin: auto;
+  margin: 0 auto 100px;
 }
 
 /* Options */
@@ -102,6 +102,13 @@
           invert(var(--invert)) 
           saturate(var(--saturate)) 
           hue-rotate(var(--hue-rotate));
+}
+.slider-line {
+  display: flex;
+  position: relative;
+  width: 100%;
+  left: 0;
+  transition: all ease 1s;
 }
 
 /* List input */
