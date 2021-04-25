@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Photo filter</title>
 </head>
@@ -30,10 +30,54 @@
         <img src="assets/images/img.png" alt="main-photo">
       </div>
       <div class="photo-redactor">
-        <!-- code -->
+        <div class="filters photo-redactor__filters">
+          <div class="filter-type">
+            <label for="blur" class="title title_light title_fiolet title_18px filter-type__title">Blur</label>
+            <input class="range" id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px">
+          </div>
+          <div class="filter-type">
+            <label for="sepia" class="title title_light title_fiolet title_18px filter-type__title">Sepia</label>
+            <input class="range" id="sepia" type="range" name="sepia" min="0" max="100" value="0" data-sizing="%">
+          </div>
+          <div class="filter-type">
+            <label for="invert" class="title title_light title_fiolet title_18px filter-type__title">Invert</label>
+            <input class="range" id="inver" type="range" name="invert" min="0" max="100" value="0" data-sizing="%">
+          </div>
+          <div class="filter-type">
+            <label for="saturate" class="title title_light title_fiolet title_18px filter-type__title">Saturate</label>
+            <input class="range" id="saturate" type="range" name="saturate" min="0" max="200" value="100"
+              data-sizing="%">
+          </div>
+          <div class="filter-type">
+            <label for="hue-rotate" class="title title_light title_fiolet title_18px filter-type__title">Hue
+              rotate</label>
+            <input class="range" id="hue-rotate" type="range" name="hue-rotate" min="0" max="180" value="0"
+              data-sizing="deg">
+          </div>
+        </div>
       </div>
     </div>
-    <div class="options"></div>
+    <ul class="options-list body__options-list">
+      <li class="list-input">
+        <div class="input-icn">
+          <img src="assets/icons/load.svg" alt="load">
+        </div>
+        <input type="file" id="file" class="hidden">
+        <label for="file" class="text">Load</label>
+      </li>
+      <li class="list-input">
+        <div class="input-icn">
+          <img src="assets/icons/reset.svg" alt="reset">
+        </div>
+        <p class="text">Reset</p>
+      </li>
+      <li class="list-input">
+        <div class="input-icn">
+          <img src="assets/icons/save.svg" alt="save">
+        </div>
+        <p class="text">Save</p>
+      </li>
+    </ul>
   </main>
   <script src="script.js"></script>
 </body>
