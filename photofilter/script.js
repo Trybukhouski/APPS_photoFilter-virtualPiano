@@ -1,11 +1,14 @@
+const doc = document.getElementsByTagName('html');
 const photoContainer = document.querySelector('.photo-container');
 const nextBtn = document.querySelector('.btn_next');
+const resetBtn = document.querySelector('.btn_reset')
 const sliderLine = document.querySelector('.slider-line');
 const images = document.querySelectorAll('.image');
+let controls = document.querySelector('.photo-redactor');
+let inputs = controls.querySelectorAll('.photo-redactor input');
+const fullscreenBtn = document.querySelector(".fullscreen");
 
 // Fullscreen option
-
-const fullscreenBtn = document.querySelector(".fullscreen");
 
 fullscreenBtn.addEventListener("click", () => toggleFullScreen() && toggleFullScreenIcn());
 
@@ -36,9 +39,6 @@ const toggleFullScreenIcn = () =>
 
 // Photo-redactor
 
-let controls = document.querySelector('.photo-redactor');
-let inputs = controls.querySelectorAll('.photo-redactor input');
-
 function handleUpdate() {
   const sizeType = this.dataset.sizing || '';
   document.documentElement.style.setProperty(`--${this.name}`, this.value + sizeType);
@@ -59,4 +59,22 @@ function nextPhoto() {
     offset = 0;
   }
   sliderLine.style.left = -offset + 'vw';
+}
+
+// Reset
+
+resetBtn.addEventListener('click', resetFilters);
+
+function resetFilters() {
+  const blurRange = document.getElementById('blur');
+  const sepiaRange = document.getElementById('sepia');
+  const invertRange = document.getElementById('inver');
+  const saturateRange = document.getElementById('saturate');
+  const hueRotateRange = document.getElementById('hue-rotate');
+  doc[0].style = "--blur:0px; --sepia:0%; --invert:0%; --saturate:100%; --hue-rotate:0deg;";
+  blurRange.value = "0";
+  sepiaRange.value = "0";
+  invertRange.value = "0";
+  saturateRange.value = "100";
+  hueRotateRange.value = "0";
 }
