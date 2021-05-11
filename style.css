@@ -1,5 +1,5 @@
 .body {
-  background-image: url(img/bg.png);
+  background-image: url("img/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -30,10 +30,17 @@
   justify-self: right;
 }
 
+.main__piano-keys {
+  width: 100%;
+  height: 50vh;
+  margin: auto;
+}
+
 .logo {
   font-family: "Fugaz One", cursive;
   font-size: 40px;
   color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
 }
 
 .navigation {
@@ -45,25 +52,136 @@
 .button {
   width: 130px;
   height: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
   background-color: rgba(255, 255, 255, 0.3);
   border: none;
   padding: 0;
   outline: none;
   cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  color: #fff;
-  font-weight: 600;
 }
 .button:hover {
   background-color: rgba(255, 255, 255, 0.5);
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #000;
+  font-weight: 600;
 }
 .button_active {
   background-color: rgba(255, 255, 255, 0.7);
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #000;
+  font-weight: 600;
+}
+
+.fullscreen {
+  width: 25px;
+  height: 25px;
+  background-image: url("img/fullscreen.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.fullscreen:hover {
+  opacity: 0.7;
+}
+
+.piano-keys {
+  position: relative;
+}
+.piano-keys_black-keys {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+}
+.piano-keys_white-keys {
+  width: 100%;
+  height: 100%;
+}
+.piano-keys .black-keys,
+.piano-keys .piano-keys__key-navigation_black {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 2fr 4fr 2fr 1fr 2fr 1fr 2fr 2fr;
+  grid-template-areas: ". R . T . U . I . O .";
+}
+.piano-keys .white-keys,
+.piano-keys .piano-keys__key-navigation_white {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  -webkit-column-gap: 2px;
+     -moz-column-gap: 2px;
+          column-gap: 2px;
+}
+
+.key {
+  cursor: pointer;
+}
+.key_white {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.key_black {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+.key:hover {
+  background-color: #fff;
+}
+.key_hover {
+  background-color: #fff;
+}
+.key_KeyR {
+  grid-area: R;
+}
+.key_KeyT {
+  grid-area: T;
+}
+.key_KeyU {
+  grid-area: U;
+}
+.key_KeyI {
+  grid-area: I;
+}
+.key_KeyO {
+  grid-area: O;
+}
+
+.key-navigation {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  margin: 16px 0;
+  display: grid;
+  justify-items: center;
+}
+
+.name_R {
+  grid-area: R;
+}
+.name_T {
+  grid-area: T;
+}
+.name_U {
+  grid-area: U;
+}
+.name_I {
+  grid-area: I;
+}
+.name_O {
+  grid-area: O;
+}
+.name_light {
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */

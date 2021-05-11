@@ -51,23 +51,23 @@ function soundOn(e) {
     switch (e.type) {
         case 'click':
             activeSound = document.querySelector(`.audio${e.target.classList[2]}`);
-            activeName = document.querySelector(`.name--${e.target.classList[2].split('')[8]}`);
+            activeName = document.querySelector(`.name_${e.target.classList[2].split('')[8]}`);
             break;
         case 'mouseover':
             activeSound = document.querySelector(`.audio${e.target.classList[2]}`);
-            activeName = document.querySelector(`.name--${e.target.classList[2].split('')[8]}`);
+            activeName = document.querySelector(`.name_${e.target.classList[2].split('')[8]}`);
             break;
         case 'keydown':
             activeSound = document.querySelector(`.audiokey--${e.code}`);
             activeKey = document.querySelector(`.key--${e.code}`);
-            activeKey.classList.add('key--hover');
-            setTimeout(function () { activeKey.classList.remove('key--hover') }, 300);
-            activeName = document.querySelector(`.name--${e.code.split('')[3]}`);
+            activeKey.classList.add('key_hover');
+            setTimeout(function () { activeKey.classList.remove('key_hover') }, 300);
+            activeName = document.querySelector(`.name_${e.code.split('')[3]}`);
             break;
 
     }
-    activeName.classList.add('name--light');
-    setTimeout(function () { activeName.classList.remove('name--light') }, 300);
+    activeName.classList.add('name_light');
+    setTimeout(function () { activeName.classList.remove('name_light') }, 300);
     activeSound.currentTime = 0;
     activeSound.play();
 }

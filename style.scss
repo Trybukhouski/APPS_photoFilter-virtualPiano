@@ -10,6 +10,19 @@
   font-family: $fontName;
   font-size: $fontSize;
   color: $fontColor;
+  font-weight: 600;
+}
+
+@mixin block-size($w-size, $h-size) {
+  width: $w-size;
+  height: $h-size;
+}
+
+@mixin background($img) {
+  background-image: url($img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 // Variables
@@ -20,17 +33,14 @@ $logoFont: 'Fugaz One', cursive;
 $black: #000;
 $white: #fff;
 $opacityWhite: rgba(255, 255, 255, 0.5);
-$OpacityWhiteUltra: rgba(255, 255, 255, 0.3);
-$OpacityWhiteSaturated: rgba(255, 255, 255, 0.7);
+$opacityWhiteUltra: rgba(255, 255, 255, 0.3);
+$opacityWhiteSaturated: rgba(255, 255, 255, 0.7);
 
 
 // Blocks
 
 .body {
-  background-image: url(img/bg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  @include background("img/bg.png");
   margin: 0;
 
   &__header {
@@ -55,6 +65,13 @@ $OpacityWhiteSaturated: rgba(255, 255, 255, 0.7);
   }
 }
 
+.main {
+  &__piano-keys {
+    @include block-size(100%, 50vh);
+    margin: auto;
+  }
+}
+
 .logo {
   @include text-style($logoFont, 40px, $opacityWhite);
 }
@@ -64,15 +81,13 @@ $OpacityWhiteSaturated: rgba(255, 255, 255, 0.7);
 }
 
 .button {
-  width: 130px;
-  height: 50px;
-  background-color: $OpacityWhiteUltra;
+  @include block-size(130px, 50px);
+  @include text-style($mainFont, $mainFontSize, $white);
+  background-color: $opacityWhiteUltra;
   border: none;
   padding: 0;
   outline: none;
   cursor: pointer;
-  @include text-style($mainFont, $mainFontSize, $white);
-  font-weight: 600;
   
   &:hover {
     background-color: $opacityWhite;
@@ -80,7 +95,122 @@ $OpacityWhiteSaturated: rgba(255, 255, 255, 0.7);
   }
 
   &_active {
-    background-color: $OpacityWhiteSaturated;
+    background-color: $opacityWhiteSaturated;
     @include text-style($mainFont, $mainFontSize, $black);
   }
+}
+
+.fullscreen {
+  @include block-size(25px, 25px);
+  @include background("img/fullscreen.png");
+  opacity: 0.3;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.piano-keys {
+  position: relative;
+
+  &_black-keys {
+    @include block-size(100%, 50%);
+    position: absolute;
+  }
+
+  &_white-keys {
+    @include block-size(100%, 100%);
+  }
+
+  .black-keys,
+  .piano-keys__key-navigation_black {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 2fr 4fr 2fr 1fr 2fr 1fr 2fr 2fr;
+    grid-template-areas: '. R . T . U . I . O .';
+  }
+  
+  .white-keys,
+  .piano-keys__key-navigation_white {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 2px;
+  }
+}
+
+.key {
+  cursor: pointer;
+
+  &_white {
+    @include block-size(100%, 100%);
+    background-color: $opacityWhiteUltra;
+  }
+
+  &_black {
+    @include block-size(100%, 100%);
+    background-color: $black;
+  }
+
+  &:hover {
+    background-color: $white;
+  }
+
+  &_hover {
+    background-color: $white;
+  }
+
+  &_KeyR {
+    grid-area: R;
+  }
+
+  &_KeyT {
+    grid-area: T;
+  }
+
+  &_KeyU {
+    grid-area: U;
+  }
+
+  &_KeyI {
+    grid-area: I;
+  }
+
+  &_KeyO {
+    grid-area: O;
+  }
+}
+
+.key-navigation {
+  @include block-size(100%, fit-content);
+  @include text-style($mainFont, 20px, $opacityWhite);
+  margin: 16px 0;
+  display: grid;
+  justify-items: center;
+}
+
+.name {
+
+  &_R {
+    grid-area: R;
+  }
+
+  &_T {
+    grid-area: T;
+  }
+
+  &_U {
+    grid-area: U;
+  }
+
+  &_I {
+    grid-area: I;
+  }
+
+  &_O {
+    grid-area: O;
+  }
+
+  &_light {
+    color: $white;
+  }  
 }
