@@ -1,0 +1,86 @@
+// Mixins
+
+@mixin wrapper($a, $b, $c) {
+  margin: $a;
+  width: $b;
+  height: $c;
+}
+
+@mixin text-style($fontName, $fontSize, $fontColor) {
+  font-family: $fontName;
+  font-size: $fontSize;
+  color: $fontColor;
+}
+
+// Variables
+
+$mainFontSize: 16px;
+$mainFont: 'Montserrat', sans-serif;
+$logoFont: 'Fugaz One', cursive;
+$black: #000;
+$white: #fff;
+$opacityWhite: rgba(255, 255, 255, 0.5);
+$OpacityWhiteUltra: rgba(255, 255, 255, 0.3);
+$OpacityWhiteSaturated: rgba(255, 255, 255, 0.7);
+
+
+// Blocks
+
+.body {
+  background-image: url(img/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+
+  &__header {
+    @include wrapper(auto, 80vw, 20vh);
+  }
+
+  &__main {
+    @include wrapper(auto, 50vw, 77vh);
+  }
+}
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+
+  &__navigation {
+    justify-self: center;
+  }
+  &__fullscreen {
+    justify-self: right;
+  }
+}
+
+.logo {
+  @include text-style($logoFont, 40px, $opacityWhite);
+}
+
+.navigation {
+  display: flex;
+}
+
+.button {
+  width: 130px;
+  height: 50px;
+  background-color: $OpacityWhiteUltra;
+  border: none;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  @include text-style($mainFont, $mainFontSize, $white);
+  font-weight: 600;
+  
+  &:hover {
+    background-color: $opacityWhite;
+    @include text-style($mainFont, $mainFontSize, $black);
+  }
+
+  &_active {
+    background-color: $OpacityWhiteSaturated;
+    @include text-style($mainFont, $mainFontSize, $black);
+  }
+}

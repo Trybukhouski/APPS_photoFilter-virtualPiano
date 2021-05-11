@@ -19,13 +19,13 @@ for (let i = 0; i < names.length; i++) {
 
 // PIANO KEYS NAVIGATION
 
-buttons[0].classList.add('button--active');
+buttons[0].classList.add('button_active');
 
 for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i];
     button.addEventListener('click', function () {
-        buttons.forEach(el => el.classList.remove('button--active'))
-        buttons[i].classList.add('button--active');
+        buttons.forEach(el => el.classList.remove('button_active'))
+        buttons[i].classList.add('button_active');
         activeNavigationButton = buttons[i].innerText;
         changeNames();
     });
